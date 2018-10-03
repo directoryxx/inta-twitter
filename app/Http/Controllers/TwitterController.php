@@ -10,7 +10,7 @@ class TwitterController extends Controller
     public function twitterUserTimeLine()
     {
         //$data = Twitter::getUserTimeline(['count' => 10, 'format' => 'array']);
-        $data = Twitter::getSearch(['result_type'=>'latest','q'=> 'prabowo sandiaga -filter:retweets -filter:links','count' => 100, 'format' => 'array','tweet_mode'=> 'extended','retweeted'=>false]);
+        $data = Twitter::getSearch(['result_type'=>'latest','q'=> 'ojek online -filter:retweets -filter:links','count' => 100, 'format' => 'array','tweet_mode'=> 'extended','retweeted'=>false]);
         $data = $data["statuses"];
         //dd($data);
         return view('twitter',compact('data'));
