@@ -16,5 +16,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 */
-Route::get('/', 'TwitterController@twitterUserTimeLine');
+Route::get('/', 'HomeController@index');
+Route::get('/1', 'HomeController@jowoki');
+Route::get('/2', 'HomeController@prabowo');
 Route::post('tweet', ['as'=>'post.tweet','uses'=>'TwitterController@tweet']);
