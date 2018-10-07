@@ -16,7 +16,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 */
-Route::get('/', 'HomeController@index');
-Route::get('/1', 'HomeController@jowoki');
-Route::get('/2', 'HomeController@prabowo');
+Auth::routes();
+Route::get('/', 'TwitterController@index');
+Route::get('/1', 'TwitterController@jowoki');
+Route::get('/2', 'TwitterController@prabowo');
 Route::post('tweet', ['as'=>'post.tweet','uses'=>'TwitterController@tweet']);
+
+
+Route::get('/home', 'HomeController@index')->name('home');

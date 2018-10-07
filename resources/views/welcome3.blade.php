@@ -82,7 +82,7 @@
             <div class="col-lg-6">
                 <center>
                     <img class="rounded-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9RrDBtytDvB9heQpHk3IO-gdCcuxI1ebVI3Umz8V1qkRp5ZM4" alt="Generic placeholder image" width="140" height="140">
-                    <a style="color:black" href="#"><h2>Joko Widodo - Ma'ruf Amin</h2></a>
+                    <a style="color:black" href="{{url('1')}}"><h2>Joko Widodo - Ma'ruf Amin</h2></a>
                     <h5 class="text-success">Sentiment</h5>
                 </center>
                 <div id="canvas-holder">
@@ -104,7 +104,7 @@
             <div class="col-lg-6">
                 <center>
                     <img class="rounded-circle" src="https://era-m.us/media/2018/08/prabowo-sandiaga.jpg" alt="Generic placeholder image" width="140" height="140">
-                    <a style="color:black" href="#"><h2>Prabowo - Sandiaga Uno</h2></a>
+                    <a style="color:black" href="{{url('2')}}"><h2>Prabowo - Sandiaga Uno</h2></a>
                     <h5 class="text-success">Sentiment</h5>
                     
                 </center>
