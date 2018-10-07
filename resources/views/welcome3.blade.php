@@ -119,6 +119,8 @@
                 <div id="canvas-holder">
                         <canvas id="chart-area3"></canvas>
                 </div>
+
+
                 
                 
                 <!--
@@ -126,7 +128,7 @@
                 <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
                 -->
             </div>
-
+            
         </div>
 
       <footer class="pt-4 my-md-5 pt-md-5 border-top">
@@ -151,7 +153,7 @@
     <script src="../../assets/js/vendor/popper.min.js"></script>
     <script src="../../assets/js/vendor/holder.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js" integrity="sha256-JG6hsuMjFnQ2spWq0UiaDRJBaarzhFbUxiUTxQDA9Lk=" crossorigin="anonymous"></script>
-    <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
+    <script src="https://www.chartjs.org/samples/latest/utils.js"></script>
     <script>
 		var randomScalingFactor = function() {
 			return Math.round(Math.random() * 100);

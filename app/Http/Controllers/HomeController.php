@@ -16,7 +16,9 @@ class HomeController extends Controller
     }
 
     public function jowoki(){
-        return view('paslongj');
+        $data = Twitter::getSearch(['result_type'=>'latest','q'=> 'jokowi maruf -filter:retweets -filter:links','count' => 100, 'format' => 'array','tweet_mode'=> 'extended','retweeted'=>false]);
+        $data = $data["statuses"];
+        return view('paslongj',compact('data'));
     }
 
     public function prabowo(){
