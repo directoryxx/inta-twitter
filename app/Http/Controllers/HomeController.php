@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\TwitterMod;
 
 class HomeController extends Controller
 {
@@ -24,6 +25,13 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    public function refresh(){
+        $twittermod = new TwitterMod();
+        $twittermod->getAll();
+        //dd($twittermod->getlastupdate());
+        return redirect()->back();
     }
 
 

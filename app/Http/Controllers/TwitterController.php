@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Twitter;
+use App\TwitterMod;
 
 class TwitterController extends Controller
 {
@@ -49,16 +50,21 @@ class TwitterController extends Controller
     }
 
     public function index(){
+        $twittermod = new TwitterMod();
+        $lastupdate = $twittermod->getlastupdate();
         //$data = Twitter::getUserTimeline(['count' => 10, 'format' => 'array']);
-        $data = Twitter::getSearch(['result_type'=>'latest','q'=> 'ojek online -filter:retweets -filter:links','count' => 100, 'format' => 'array','tweet_mode'=> 'extended','retweeted'=>false]);
-        $data = $data["statuses"];
+        //$data = Twitter::getSearch(['result_type'=>'latest','q'=> 'ojek online -filter:retweets -filter:links','count' => 100, 'format' => 'array','tweet_mode'=> 'extended','retweeted'=>false]);
+        //$data = $data["statuses"];
         //dd($data);
-        return view('welcome3',compact('data'));
+        return view('welcome3',compact('lastupdate'));
     }
 
     public function jowoki(){
-        $data = Twitter::getSearch(['result_type'=>'latest','q'=> 'jokowi maruf -filter:retweets -filter:links','count' => 100, 'format' => 'array','tweet_mode'=> 'extended','retweeted'=>false]);
-        $data = $data["statuses"];
+        $twit = new TwitterMod();
+        $asd = $twit->getTweet("jokowi maruf");
+        //$data = Twitter::getSearch(['result_type'=>'latest','q'=> 'jokowi maruf -filter:retweets -filter:links','count' => 100, 'format' => 'array','tweet_mode'=> 'extended','retweeted'=>false]);
+        //$data = $data["statuses"];
+        dd($asd);
         return view('paslongj',compact('data'));
     }
 

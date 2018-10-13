@@ -25,6 +25,8 @@
     <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
       <h1 class="display-4">Sentiment Analyst</h1>
       <p class="lead">Pasangan Calon Pemilihan Presiden 2019.</p>
+      <span class="badge badge-primary">Last Update : {{$lastupdate->lastupdate}}</span>
+
     </div>
 
     <div class="container">
@@ -106,6 +108,7 @@
                     <img class="rounded-circle" src="https://era-m.us/media/2018/08/prabowo-sandiaga.jpg" alt="Generic placeholder image" width="140" height="140">
                     <a style="color:black" href="{{url('2')}}"><h2>Prabowo - Sandiaga Uno</h2></a>
                     <h5 class="text-success">Sentiment</h5>
+
                     
                 </center>
                     <div id="canvas-holder">
