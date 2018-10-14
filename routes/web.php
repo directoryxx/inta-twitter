@@ -21,7 +21,4 @@ Route::get('/refresh', 'HomeController@refresh');
 Route::get('/', 'TwitterController@index');
 Route::get('/1', 'TwitterController@jowoki');
 Route::get('/2', 'TwitterController@prabowo');
-Route::post('tweet', ['as'=>'post.tweet','uses'=>'TwitterController@tweet']);
-
-
 Route::get('/home', 'HomeController@index')->name('home');

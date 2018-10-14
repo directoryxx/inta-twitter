@@ -139,36 +139,24 @@
             </div>
             <div class="col-lg-12">
               <table class="table table-bordered" id="myTable">
-                  <thead>
+              <thead>
                       <tr>
                           <th width="50px">No</th>
-                          <th>Twitter Id</th>
-                          <th>Twitter User</th>
-                          <th>Message</th>
-                          <th>Images</th>
-                          <th>Favorite</th>
-                          <th>Retweet</th>
-                          <th>Sentiment</th>
+                          <th>Tweet</th>
+                          <th>Username</th>
+                          <th>Polarity</th>
+                          <th>Platform</th>
                       </tr>
                   </thead>
                   <tbody>
-                      @if(!empty($data))
-                          @foreach($data as $key => $value)
+                      @if(!empty($tweet))
+                          @foreach($tweet as $key => $value)
                               <tr>
-                                  <td>{{ ++$key }}</td>
-                                  <td>{{ $value['id'] }}</td>
-                                  <td>{{ $value["user"]["name"] }}</td>
-                                  <td>{{ $value['full_text'] }}</td>
-                                  <td>
-                                      @if(!empty($value['extended_entities']['media']))
-                                          @foreach($value['extended_entities']['media'] as $v)
-                                              <img src="{{ $v['media_url_https'] }}" style="width:100px;">
-                                          @endforeach
-                                      @endif
-                                  </td>
-                                  <td>{{ $value['favorite_count'] }}</td>
-                                  <td>{{ $value['retweet_count'] }}</td>
+                                  <td>{{++$key}}</td>
+                                  <td>{{ $value->tweet }}</td>
+                                  <td>{{ $value->username }}</td>
                                   <td>-</td>
+                                  <td>{{ strip_tags($value->platform) }}</td>
                               </tr>
                           @endforeach
                       @else
@@ -244,10 +232,9 @@
 			data: {
 				datasets: [{
 					data: [
-						62,
-						30,
-						51,
-                        12,
+						@foreach ($countplatpra as $count)
+                        {{$count->count.","}}
+                        @endforeach
 					],
 					backgroundColor: [
 						window.chartColors.red,
@@ -258,10 +245,9 @@
 					label: 'Dataset 1'
 				}],
 				labels: [
-					'Web',
-					'Android',
-					'iOS',
-                    'Other',
+					@foreach ($countplatpra as $count)
+                        '{{strip_tags($count->platform).""}}',
+                    @endforeach
 				]
 			},
 			options: {
@@ -274,9 +260,9 @@
 			data: {
 				datasets: [{
 					data: [
-						2,
-						3,
-						5,
+						@foreach ($countmostuserpra as $count)
+                        {{$count->count.","}}
+                        @endforeach
 					],
 					backgroundColor: [
 						window.chartColors.blue,
@@ -286,9 +272,9 @@
 					label: 'Dataset 1'
 				}],
 				labels: [
-					'Lisa Ristina',
-					'Ahadi A.',
-					'Usman Al-Khair Larampeng',
+					@foreach ($countmostuserpra as $count)
+                        '{{$count->username}}',
+                    @endforeach
 				]
 			},
 			options: {

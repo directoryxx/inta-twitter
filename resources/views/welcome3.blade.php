@@ -189,29 +189,53 @@
 			}
 		};
 
-        var config1 = {
+    var config1pra = {
 			type: 'pie',
 			data: {
 				datasets: [{
 					data: [
-						62,
-						30,
-						51,
-                        12,
+            @foreach ($countplatpra as $count)
+              {{$count->count.","}}
+            @endforeach
 					],
 					backgroundColor: [
 						window.chartColors.red,
 						window.chartColors.green,
-						window.chartColors.gray,
-                        window.chartColors.yellow,
+            window.chartColors.yellow,
 					],
 					label: 'Dataset 1'
 				}],
 				labels: [
-					'Web',
-					'Android',
-					'iOS',
-                    'Other',
+          @foreach ($countplatpra as $count)
+              '{{strip_tags($count->platform).""}}',
+          @endforeach
+				]
+			},
+			options: {
+				responsive: true
+			}
+		};
+
+    var config1jok = {
+			type: 'pie',
+			data: {
+				datasets: [{
+					data: [
+            @foreach ($countplatjok as $count)
+              {{$count->count.","}}
+            @endforeach
+					],
+					backgroundColor: [
+						window.chartColors.red,
+						window.chartColors.green,
+            window.chartColors.yellow,
+					],
+					label: 'Dataset 1'
+				}],
+				labels: [
+          @foreach ($countplatjok as $count)
+              '{{strip_tags($count->platform).""}}',
+          @endforeach
 				]
 			},
 			options: {
@@ -225,9 +249,9 @@
             var ctx = document.getElementById('chart-area1').getContext('2d');
 			window.myPie = new Chart(ctx, config);
             var ctx = document.getElementById('chart-area2').getContext('2d');
-			window.myPie = new Chart(ctx, config1);
+			window.myPie = new Chart(ctx, config1jok);
             var ctx = document.getElementById('chart-area3').getContext('2d');
-			window.myPie = new Chart(ctx, config1);
+			window.myPie = new Chart(ctx, config1pra);
 		};
 
 

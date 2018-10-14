@@ -44,33 +44,30 @@ class TwitterController extends Controller
 
 
     	$twitter = Twitter::postTweet($newTwitte);
-
-    	
     	return back();
     }
 
     public function index(){
         $twittermod = new TwitterMod();
         $lastupdate = $twittermod->getlastupdate();
-        //$data = Twitter::getUserTimeline(['count' => 10, 'format' => 'array']);
-        //$data = Twitter::getSearch(['result_type'=>'latest','q'=> 'ojek online -filter:retweets -filter:links','count' => 100, 'format' => 'array','tweet_mode'=> 'extended','retweeted'=>false]);
-        //$data = $data["statuses"];
-        //dd($data);
-        return view('welcome3',compact('lastupdate'));
+        $countplatpra = $twittermod->getcurrentcountplatpra();
+        $countplatjok = $twittermod->getcurrentcountplatjok();
+        return view('welcome3',compact('lastupdate'),compact("countplatpra"))->with("countplatjok",$countplatjok);
     }
 
     public function jowoki(){
         $twit = new TwitterMod();
-        $asd = $twit->getTweet("jokowi maruf");
-        //$data = Twitter::getSearch(['result_type'=>'latest','q'=> 'jokowi maruf -filter:retweets -filter:links','count' => 100, 'format' => 'array','tweet_mode'=> 'extended','retweeted'=>false]);
-        //$data = $data["statuses"];
-        dd($asd);
-        return view('paslongj',compact('data'));
+        $countplatjok = $twit->getcurrentcountplatjok();
+        $countmostuserjok = $twit->getcurrentcountmostuserjok();
+        $tweet = $twit->gettweetjok();
+        return view('paslongj',compact('data'))->with("countplatjok",$countplatjok)->with("countmostuserjok",$countmostuserjok)->with("tweet",$tweet);
     }
 
     public function prabowo(){
-        $data = Twitter::getSearch(['result_type'=>'latest','q'=> 'prabowo sandiaga -filter:retweets -filter:links','count' => 100, 'format' => 'array','tweet_mode'=> 'extended','retweeted'=>false]);
-        $data = $data["statuses"];
-        return view('paslongj2',compact('data'));
+        $twit = new TwitterMod();
+        $countplatpra = $twit->getcurrentcountplatpra();
+        $countmostuserpra = $twit->getcurrentcountmostuserpra();
+        $tweet = $twit->gettweetpra();
+        return view('paslongj2')->with("countplatpra",$countplatpra)->with("countmostuserpra",$countmostuserpra)->with("tweet",$tweet);
     }
 }

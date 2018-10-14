@@ -24,6 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $twittermod = new TwitterMod();
+        
         return view('home');
     }
 
