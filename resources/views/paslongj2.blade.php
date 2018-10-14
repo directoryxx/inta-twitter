@@ -123,7 +123,7 @@
             <div class="col-md-4 text-center">
                 <div class="card" >
                 <div class="card-body">
-                    <h5 class="card-title">Top User </h5>
+                    <h5 class="card-title">Pengguna paling sering tweet</h5>
                     <div id="canvas-holder">
                         <canvas id="chart-area2"></canvas>
                     </div>
